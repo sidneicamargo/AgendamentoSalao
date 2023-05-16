@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,700;1,200;1,300;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <p id="HeaderLogo">Cabeleleila Leila</p>
+
+      <img src="./images/mulher.png" alt="Logo DevFinances" id="logo" />
+    </header>
+
+    <main class="container">
+      <section id="balance">
+        <h2 class="sr-only">Balanço</h2>
+
+        <div class="card">
+          <h3>
+            <span>Agendamentos para hoje: </span>
+          </h3>
+          <p id="todayDisplay"></p>
+        </div>
+
+        <div class="card">
+          <h3>
+            <span>Agendamentos para semana: </span>
+          </h3>
+          <p id="weekDisplay"></p>
+        </div>
+
+        <div class="card total" description="">
+          <h3>
+            <span>Receita total do mês: </span>
+            <img src="./images/total.svg" alt="Imagem do total" />
+          </h3>
+
+          <p id="totalDisplay"></p>
+        </div>
+      </section>
+
+      <section id="agendamento">
+        <h2 class="sr-only">Transações</h2>
+
+        <a href="#" onclick="Modal.open()" class="button new"
+          >+ Novo Agendamento</a
+        >
+
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Serviço</th>
+              <th>Valor</th>
+              <th>Data agendamento</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+
+    <div class="modal-overlay">
+      <div class="modal">
+        <div id="form">
+          <h2>Novo Agendamento</h2>
+          <form action="" onsubmit="Form.submit(event)">
+            <div class="input-group">
+              <label for="description" class="sr-only">Descrição</label>
+              <input
+                type="text"
+                id="description"
+                name="description"
+                placeholder="Descrição do serviço"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="amount" class="sr-only">Valor</label>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                placeholder="Valor"
+                step="0.01"
+              />
+            </div>
+
+            <div class="input-group">
+              <small class="help"
+                >Atendimentos das 09:00 às 18:00 de Segunda a Sexta-feira</small
+              >
+              <label for="date" class="sr-only">Data</label>
+              <input type="date" id="date" name="date" />
+            </div>
+
+            <div class="input-group">
+              <label for="time" class="sr-only">Horário</label>
+              <input
+                type="time"
+                id="time"
+                name="time"
+                min="08:00"
+                max="18:00"
+              />
+              <small class="help" id="aviso"
+                >Atendimentos devem ser marcados com 2 dias de
+                antecedência</small
+              >
+            </div>
+
+            <div class="input-group actions">
+              <a href="#" onclick="Modal.close()" class="button cancel"
+                >Cancelar</a
+              >
+              <button>Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay-edit">
+      <div class="modal edit">
+        <div id="form">
+          <h2>Editar Agendamento</h2>
+          <form id="EditForm" action="" onsubmit="Form.submitUpdate(event)">
+            <div class="input-group">
+              <label for="description" class="sr-only">Descrição</label>
+              <input
+                type="text"
+                id="descriptionEdit"
+                name="descriptionEdit"
+                placeholder="Descrição do serviço"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="amount" class="sr-only">Valor</label>
+              <input
+                type="number"
+                id="amountEdit"
+                name="amountEdit"
+                placeholder="Valor"
+                step="0.01"
+              />
+            </div>
+
+            <div class="input-group">
+              <small class="help"
+                >Atendimentos das 09:00 às 18:00 de Segunda a Sexta-feira</small
+              >
+              <label for="date" class="sr-only">Data</label>
+              <input type="date" id="dateEdit" name="dateEdit" />
+            </div>
+
+            <div class="input-group">
+              <label for="time" class="sr-only">Horário</label>
+              <input
+                type="time"
+                id="timeEdit"
+                name="timeEdit"
+                min="08:00"
+                max="18:00"
+              />
+              <small class="help" id="aviso"
+                >Atendimentos devem ser marcados com 2 dias de
+                antecedência</small
+              >
+            </div>
+
+            <div class="input-group actions">
+              <a href="#" onclick="ModalEdit.close()" class="button cancel"
+                >Cancelar</a
+              >
+              <button>Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer><p>Cabeleleila Leila ✂</p></footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
